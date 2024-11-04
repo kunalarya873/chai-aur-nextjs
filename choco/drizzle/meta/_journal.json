@@ -8,6 +8,13 @@
       "when": 1730734355241,
       "tag": "0000_parallel_felicia_hardy",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1730735297078,
+      "tag": "0001_lovely_calypso",
+      "breakpoints": true
     }
   ]
 }
