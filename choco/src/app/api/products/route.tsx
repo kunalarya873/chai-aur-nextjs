@@ -3,6 +3,7 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { db } from "@/lib/db/db";
 import { products } from "@/lib/db/schemas";
+import { desc } from "drizzle-orm";
 
 export async function POST(request: Request) {
   const data = await request.formData();
@@ -38,5 +39,14 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ message: "success" }), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify({ message: "Database insertion error", details: error }), { status: 500 });
+  }
+}
+
+export async function GET() {
+  try {
+  const allProducts = await db.select().from(products).orderBy(desc(products.id)).execute();
+  return Response.json(allProducts);
+  } catch (error) {
+    return new Response(JSON.stringify({ message: "Database error", details: error }), { status: 500 });
   }
 }
