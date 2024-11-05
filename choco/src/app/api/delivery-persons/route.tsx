@@ -40,3 +40,4 @@ export async function GET() {
         return new Response(JSON.stringify({message: `Failed to fetch delivery persons: ${error}`}), {status: 500});
     }
 }
+
