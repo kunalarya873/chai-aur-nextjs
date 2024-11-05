@@ -8,7 +8,7 @@ export const users = pgTable("users",{
     lname: varchar("lname", { length: 100 }).notNull(),
     email: varchar("email", { length: 100 }).unique(),
     provider: varchar("provider", { length: 20 }).notNull(),
-    external_id: varchar("external_id", { length: 100 }).notNull(),
+    external_id: varchar("external_id", { length: 100 }),
     image: text("image"),
     role: varchar("role", { length: 20 }).notNull().default("customer"),
     updatedAt: timestamp("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
