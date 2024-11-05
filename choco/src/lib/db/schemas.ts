@@ -37,3 +37,24 @@ export const warehouses =pgTable("warehouses",{
         pincodeIdx: index('pincode_idx').on(table.pincode)
     }
 });
+
+export const orders = pgTable("orders", {
+    id: serial("id").primaryKey(),
+    // userId: integer("user_id").notNull().references(() => users.id, {onDelete: "cascade"}),
+    // productId: integer("product_id").notNull().references(() => products.id, {onDelete: "cascade"}),
+    // quantity: integer("quantity").notNull(),
+    // totalPrice: integer("total_price").notNull(),
+    // status: varchar("status", { length: 20 }).notNull().default("pending"),
+    // updatedAt: timestamp("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    // createdAt: timestamp("created_at").notNull().default(sql`CURRENT_TIMESTAMP`)
+});
+
+export const deliveryPersons = pgTable("delivery_persons",{
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 100 }).notNull(),
+    phone: varchar("phone", { length: 13 }).notNull(),
+    warehouseId: integer("warehouse_id").notNull().references(() => warehouses.id, {onDelete: "cascade"}),
+    order_id: integer("order_id").references(() => orders.id, {onDelete: "set null"}),
+    updatedAt: timestamp("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    createdAt: timestamp("created_at").notNull().default(sql`CURRENT_TIMESTAMP`)
+});

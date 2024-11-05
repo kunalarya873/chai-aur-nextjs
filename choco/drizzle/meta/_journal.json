@@ -22,6 +22,20 @@
       "when": 1730779970070,
       "tag": "0002_dashing_namor",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1730782134700,
+      "tag": "0003_regular_thunderbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1730783871873,
+      "tag": "0004_careful_magik",
+      "breakpoints": true
     }
   ]
 }

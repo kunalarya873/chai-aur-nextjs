@@ -13,13 +13,11 @@ export async function POST(request: Request){
         return new Response(JSON.stringify({message: error}), {status: 400});
     }
     try {
-        await db.insert(warehouses).values(validatedData).execute();
+        await db.insert(warehouses).values({ ...validatedData, pincode: validatedData.pincode.toString() }).execute();
         return new Response(JSON.stringify({message: 'Warehouse stored successfully'}), {status: 201});
     } catch (error) {
         return new Response(JSON.stringify({message: `Failed to store warehouse: ${error}`}), {status: 500});
     }
-    return new Response(JSON.stringify(validatedData), {status: 200});
-
 }
 
 export async function GET(){
@@ -30,3 +28,4 @@ export async function GET(){
         return new Response(JSON.stringify({message: `Failed to fetch all warehouses: ${error}`}), {status: 500});
     }
 }   
+

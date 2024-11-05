@@ -1,0 +1,1 @@
+ALTER TABLE "delivery_persons" ALTER COLUMN "order_id" DROP NOT NULL;
