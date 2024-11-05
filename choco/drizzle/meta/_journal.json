@@ -15,6 +15,13 @@
       "when": 1730735297078,
       "tag": "0001_lovely_calypso",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1730779970070,
+      "tag": "0002_dashing_namor",
+      "breakpoints": true
     }
   ]
 }
