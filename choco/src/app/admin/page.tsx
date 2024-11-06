@@ -1,8 +1,11 @@
 import React from 'react'
+import { Button } from "@/components/ui/button";
 
 const page = () => {
   return (
-    <div>Admin page</div>
+    <div>
+      <Button>Button</Button>
+    </div>
   )
 }
 
