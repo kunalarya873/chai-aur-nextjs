@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
+dotenv.config();
 type ConnectionObject = {
     isConnected?: number,
 }
@@ -13,7 +15,7 @@ async function dbConnect(): Promise <void> {
     }
     try {
         const db = await mongoose.connect(
-            process.env.MONGODB_URI || "", {}
+            process.env.NEXT_PUBLIC_MONGODB_URI || "mongodb://localhost:27017/next_js_testing", {}
         )
         connection.isConnected =db.connections[0].readyState
         console.log("db connected");
